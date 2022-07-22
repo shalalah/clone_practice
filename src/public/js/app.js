@@ -57,11 +57,15 @@ function handleRoomSubmit(event) {
 form.addEventListener("submit", handleRoomSubmit);
 
 // FE에서 event(BE의 welcome)에 반응하도록 만들어야 함
-socket.on("welcome", (user) => {
+socket.on("welcome", (user, newCount) => {
+  const h3 = room.querySelector("h3");
+  h3.innerText = `Room ${roomName} (${newCount})`;
   addMessage(`${user} arrived!`);
 });
 
-socket.on("bye", (left) => {
+socket.on("bye", (left, newCount) => {
+  const h3 = room.querySelector("h3");
+  h3.innerText = `Room ${roomName} (${newCount})`;
   addMessage(`${left} left ㅠㅠ`);
 });
 // message 받기
@@ -70,6 +74,7 @@ socket.on("new_message", addMessage);
 // 새로운 방이 생기면, 다른 브라우저에 console이 찍힘
 socket.on("room_change", (rooms) => {
   const roomList = welcome.querySelector("ul");
+  // 방 목록을 비워서 새로운 list가 되게끔 함
   roomList.innerHTML = "";
   if (rooms.length === 0) {
     return;
