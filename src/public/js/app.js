@@ -66,3 +66,19 @@ socket.on("bye", (left) => {
 });
 // message 받기
 socket.on("new_message", addMessage);
+
+// 새로운 방이 생기면, 다른 브라우저에 console이 찍힘
+socket.on("room_change", (rooms) => {
+  const roomList = welcome.querySelector("ul");
+  roomList.innerHTML = "";
+  if (rooms.length === 0) {
+    return;
+  }
+  rooms.forEach((room) => {
+    // 각각의 room에 li element를 만들어줌
+    const li = document.createElement("li");
+    li.innerText = room;
+    // 새로운 li를 roomList에 append해줌
+    roomList.append(li);
+  });
+});

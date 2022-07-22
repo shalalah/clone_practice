@@ -55,13 +55,19 @@ wsServer.on("connection", (socket) => {
     // FE의 function showRoom()을 실행시킴
     done();
     // "welcome" event를 roomName에 있는 모든 사람들에게 emit함
+    // -> 메세지를 하나의 socket 에만 보냄
     socket.to(roomName).emit("welcome", socket.nickname);
+    // 메세지를 모든 socket에 보냄
+    wsServer.sockets.emit("room_change", publicRooms());
   });
   socket.on("disconnecting", () => {
     // array같은 set여서 반복 가능!
     socket.rooms.forEach((room) =>
       socket.to(room).emit("bye", socket.nickname)
     );
+  });
+  socket.on("disconnect", () => {
+    wsServer.sockets.emit("room_change", publicRooms());
   });
   socket.on("new_message", (msg, room, done) => {
     socket.to(room).emit("new_message", `${socket.nickname}: ${msg}`);
