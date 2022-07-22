@@ -3,9 +3,11 @@
 // express로 할 일은 views를 설정해주고 render해주는 것
 import express from "express";
 import http from "http";
-import { parse } from "path";
-import SocketIO from "socket.io";
+// import { parse } from "path";
+// import SocketIO from "socket.io";
 // import WebSocket from "ws";
+import { Server } from "socket.io";
+import { instrument } from "@socket.io/admin-ui";
 
 const app = express();
 
@@ -25,9 +27,18 @@ app.get("/*", (req, res) => res.redirect("/"));
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 
-// socketIO
 const httpServer = http.createServer(app);
-const wsServer = SocketIO(httpServer);
+// admin ui -> 데모가 작동하는데 필요한 환경설정
+const wsServer = new Server(httpServer, {
+  cors: {
+    origin: ["https://admin.socket.io"],
+    credentials: true,
+  },
+});
+
+instrument(wsServer, {
+  auth: false,
+});
 
 // public rooms를 주는 function 생성
 function publicRooms() {
