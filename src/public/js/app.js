@@ -45,7 +45,9 @@ async function getMedia(deviceId) {
     video: { deviceId: { exact: deviceId } },
   };
   try {
-    deviceId ? cameraConstraints : initialConstrains;
+    myStream = await navigator.mediaDevices.getUserMedia(
+      deviceId ? cameraConstraints : initialConstrains
+    );
     myFace.srcObject = myStream;
     if (!deviceId) {
       await getCameras();
@@ -83,8 +85,8 @@ function handleCameraClick() {
 }
 
 async function handleCameraChange() {
-  //   console.log(camerasSelect.value); // deviceId를 얻을 수 있음
-  await getMedia(camerasSelect.value);
+  console.log(camerasSelect.value); // deviceId를 얻을 수 있음
+  //   await getMedia(camerasSelect.value);
 }
 
 muteBtn.addEventListener("click", handleMuteClick);
