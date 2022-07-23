@@ -33,6 +33,9 @@ wsServer.on("connection", (socket) => {
     // 다른 user 참가
     socket.to(roomName).emit("welcome");
   });
+  socket.on("offer", (offer, roomName) => {
+    socket.to(roomName).emit("offer", offer);
+  });
 });
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);

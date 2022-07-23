@@ -14,6 +14,7 @@ let myStream;
 let muted = false;
 let cameraOff = false;
 let roomName;
+let myPeerConnection;
 
 async function getCameras() {
   try {
@@ -114,16 +115,37 @@ function handleWelcomeSubmit(event) {
   input.value = "";
 }
 
-function startMedia() {
+async function startMedia() {
   welcome.hidden = true;
   call.hidden = false;
-  getMedia();
+  await getMedia();
+  makeConnection();
 }
 
 welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 
-// socket Code
+// socket Code, 누군가 방에 들어올 때 알림
 
-socket.on("welcome", () => {
-  console.log("someone joined");
+socket.on("welcome", async () => {
+  const offer = await myPeerConnection.createOffer();
+  //   console.log(offer); // offer 살펴보기
+  myPeerConnection.setLocalDescription(offer);
+  console.log("sent the offer");
+  socket.emit("offer", offer, roomName);
 });
+
+socket.on("offer", (offer) => {
+  console.log(offer);
+});
+
+// RTC Code
+
+function makeConnection() {
+  // peer-to-peer 연결 만듦
+  myPeerConnection = new RTCPeerConnection();
+  //   console.log(myStream.getTracks());
+  //   양쪽 브라우저에서 카메라와 마이크의 데이터 stream을 받아서 연결 안에 집어 넣음
+  myStream
+    .getTracks()
+    .forEach((track) => myPeerConnection.addTrack(track, myStream));
+}
