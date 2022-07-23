@@ -15,27 +15,41 @@ async function getCameras() {
     // console.log(devices); // -> devices가 array로 출력됨
     // kind 가 videoinput인 것만 필요
     const cameras = devices.filter((device) => device.kind === "videoinput");
-    console.log(cameras);
+    // console.log(cameras);
+    // 현재 선택된 카메라가 어떤 것인지 확인
+    // console.log(myStream.getVideoTracks());
+    const currentCamera = myStream.getVideoTracks()[0];
     cameras.forEach((camera) => {
       const option = document.createElement("option");
       option.value = camera.deviceId;
       option.innerText = camera.label;
+      if (currentCamera.label === camera.label) {
+        option.selected = true;
+      }
       camerasSelect.appendChild(option);
     });
   } catch (e) {
     console.log(e);
   }
 }
-
-async function getMedia() {
+// video를 다시 시작하게 하는 방법 -getMedia가 argument를 하나 받도록 할 수 있음
+async function getMedia(deviceId) {
+  // 초기 constraint
+  const initialConstrains = {
+    audio: true,
+    video: { facingMode: "user" },
+  };
+  const cameraConstraints = {
+    audio: true,
+    // 특정 카메라를 원할 경우 exact 사용 -> 요청한 카메라가 없으면 다른 카메라를 사용하는 것과 달리, 이 경우 이 카메라 하나만 사용
+    video: { deviceId: { exact: deviceId } },
+  };
   try {
-    myStream = await navigator.mediaDevices.getUserMedia({
-      audio: true,
-      video: true,
-    });
-    // console.log(myStream);
+    deviceId ? cameraConstraints : initialConstrains;
     myFace.srcObject = myStream;
-    await getCameras();
+    if (!deviceId) {
+      await getCameras();
+    }
   } catch (error) {
     console.log(error);
   }
@@ -68,5 +82,11 @@ function handleCameraClick() {
   }
 }
 
+async function handleCameraChange() {
+  //   console.log(camerasSelect.value); // deviceId를 얻을 수 있음
+  await getMedia(camerasSelect.value);
+}
+
 muteBtn.addEventListener("click", handleMuteClick);
 cameraBtn.addEventListener("click", handleCameraClick);
+camerasSelect.addEventListener("input", handleCameraChange);
