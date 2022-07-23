@@ -24,6 +24,17 @@ app.get("/*", (req, res) => res.redirect("/"));
 const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
+// 새로운 event "join_room"
+wsServer.on("connection", (socket) => {
+  socket.on("join_room", (roomName, done) => {
+    // 내가 방에 참가
+    socket.join(roomName);
+    done();
+    // 다른 user 참가
+    socket.to(roomName).emit("welcome");
+  });
+});
+
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 
 httpServer.listen(3000, handleListen);
