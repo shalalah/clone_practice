@@ -94,6 +94,18 @@ function handleCameraClick() {
 async function handleCameraChange() {
   //   console.log(camerasSelect.value); // deviceId를 얻을 수 있음
   await getMedia(camerasSelect.value);
+  if (myPeerConnection) {
+    // video device의 새로운 id로 다시 또 다른 stream을 생성
+    // -> video track 을 받으면 선택한 새 장치로 업데이트 된 video track을 받는 것임
+    const videoTrack = myStream.getVideoTracks()[0];
+    // track에 kind:"video"를 가진 sender를 찾고자 함
+    const videoSender = myPeerConnection
+      .getSenders()
+      .find((sender) => sender.track.kind === "video");
+    console.log(videoSender);
+    // sender를 그 새로운 video track 으로 바꿈
+    videoSender.replaceTrack(videoTrack);
+  }
 }
 
 muteBtn.addEventListener("click", handleMuteClick);
