@@ -135,11 +135,23 @@ socket.on("welcome", async () => {
 
 socket.on("offer", async (offer) => {
   //   console.log(offer);
+  console.log("received the offer");
   myPeerConnection.setRemoteDescription(offer);
   const answer = await myPeerConnection.createAnswer();
   //   console.log(answer);
   myPeerConnection.setLocalDescription(answer);
   socket.emit("answer", answer, roomName);
+  console.log("sent the answer");
+});
+
+socket.on("answer", (answer) => {
+  console.log("received the answer");
+  myPeerConnection.setRemoteDescription(answer);
+});
+// ice event를 받기도 함
+socket.on("ice", (ice) => {
+  console.log("received candidate");
+  myPeerConnection.addIceCandidate(ice);
 });
 
 // RTC Code
@@ -149,7 +161,20 @@ function makeConnection() {
   myPeerConnection = new RTCPeerConnection();
   //   console.log(myStream.getTracks());
   //   양쪽 브라우저에서 카메라와 마이크의 데이터 stream을 받아서 연결 안에 집어 넣음
+  myPeerConnection.addEventListener("icecandidate", handleIce);
+  myPeerConnection.addEventListener("addstream", handleAddStream);
   myStream
     .getTracks()
     .forEach((track) => myPeerConnection.addTrack(track, myStream));
+}
+
+function handleIce(data) {
+  // 브라우저간에 candidate들을 서로 주고 받음
+  console.log("sent candidate");
+  socket.emit("ice", data.candidate, roomName);
+}
+// 이벤트 데이터를 보는 함수
+function handleAddStream(data) {
+  const peerFace = document.getElementById("peerFace");
+  peerFace.srcObject = data.stream;
 }
