@@ -26,15 +26,17 @@ const wsServer = SocketIO(httpServer);
 
 // 새로운 event "join_room"
 wsServer.on("connection", (socket) => {
-  socket.on("join_room", (roomName, done) => {
+  socket.on("join_room", (roomName) => {
     // 내가 방에 참가
     socket.join(roomName);
-    done();
     // 다른 user 참가
     socket.to(roomName).emit("welcome");
   });
   socket.on("offer", (offer, roomName) => {
     socket.to(roomName).emit("offer", offer);
+  });
+  socket.on("answer", (answer, roomName) => {
+    socket.to(roomName).emit("answer", answer);
   });
 });
 
