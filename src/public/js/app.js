@@ -15,6 +15,7 @@ let muted = false;
 let cameraOff = false;
 let roomName;
 let myPeerConnection;
+let myDataChannel;
 
 async function getCameras() {
   try {
@@ -138,6 +139,12 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 // socket Code, 누군가 방에 들어올 때 알림
 
 socket.on("welcome", async () => {
+  // 무언가를 offer하는 Socket이 data channel을 생성하는 주체가 되어야 함 -> d.c 만들기
+  myDataChannel = myPeerConnection.createDataChannel("chat");
+  //  그 d.c에 event listener를 추가함
+  myDataChannel.addEventListener("message", (event) => console.log(event.data));
+  console.log("made data channel");
+
   const offer = await myPeerConnection.createOffer();
   //   console.log(offer); // offer 살펴보기
   myPeerConnection.setLocalDescription(offer);
@@ -147,6 +154,14 @@ socket.on("welcome", async () => {
 
 socket.on("offer", async (offer) => {
   //   console.log(offer);
+  //   d.c 만들 필요 없음 -> d.c 있을 때 event listener를 만들면 됨
+  myPeerConnection.addEventListener("datachannel", (event) => {
+    myDataChannel = event.channel;
+    myDataChannel.addEventListener("message", (event) =>
+      console.log(event.data)
+    );
+  });
+
   console.log("received the offer");
   myPeerConnection.setRemoteDescription(offer);
   const answer = await myPeerConnection.createAnswer();
@@ -170,9 +185,22 @@ socket.on("ice", (ice) => {
 // makeConnection()함수는 track들을 개별적으로 추가해주는 함수
 function makeConnection() {
   // peer-to-peer 연결 만듦
-  myPeerConnection = new RTCPeerConnection();
-  //   console.log(myStream.getTracks());
-  //   양쪽 브라우저에서 카메라와 마이크의 데이터 stream을 받아서 연결 안에 집어 넣음
+  myPeerConnection = new RTCPeerConnection({
+    //   console.log(myStream.getTracks());
+    //   양쪽 브라우저에서 카메라와 마이크의 데이터 stream을 받아서 연결 안에 집어 넣음
+    //   구글이 제공하는 서버 사용 - 테스트용도
+    iceServers: [
+      {
+        urls: [
+          "stun:stun.l.google.com:19302",
+          "stun:stun1.l.google.com:19302",
+          "stun:stun2.l.google.com:19302",
+          "stun:stun3.l.google.com:19302",
+          "stun:stun4.l.google.com:19302",
+        ],
+      },
+    ],
+  });
   myPeerConnection.addEventListener("icecandidate", handleIce);
   myPeerConnection.addEventListener("addstream", handleAddStream);
   myStream
