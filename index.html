@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Viewtube Mobile Clone</title>
+    <!-- Fontawesome 사용을 위한 세팅 -->
+    <script
+      src="https://kit.fontawesome.com/2d323a629b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <i class="fab fa-youtube"></i>
+        <span class="title">Viewtube</span>
+      </div>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-ellipsis-v"></i>
+      </div>
+    </header>
+
+    <!-- Video Player -->
+    <section class="player">
+      <video controls src="Video/food2.mp4"></video>
+    </section>
+    <!--  Video Info -->
+    <section class="info">
+      <div class="metadata">
+        <ul class="hashtags">
+          <li>#어느봄날</li>
+          <li>#일산</li>
+          <li>#밤리단길</li>
+        </ul>
+        <div class="titleAndButton">
+          <span class="title clamp">
+            clone coding : Youtube view clone 일산 투어 기록 이거 테스트야 HTML
+            CSS 재미있나? 하아아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ | 프론트엔드
+            개발자 입문편: HTML, CSS, Javascript 드림코딩과 함께하는 프론트엔드
+            실전 입문편</span
+          >
+          <button class="moreBtn">
+            <i class="fas fa-caret-down"></i>
+          </button>
+        </div>
+        <div class="views">
+          <span class="views">1M views 1 month ago</span>
+        </div>
+      </div>
+      <ul class="actions">
+        <li>
+          <button>
+            <i class="active fas fa-thumbs-up"></i><span>1K</span>
+          </button>
+        </li>
+        <li>
+          <button><i class="fas fa-thumbs-down"></i><span>0</span></button>
+        </li>
+        <li>
+          <button><i class="fas fa-share"></i><span>Share</span></button>
+        </li>
+        <li>
+          <button><i class="fas fa-plus"></i><span>Save</span></button>
+        </li>
+        <li>
+          <button>
+            <i class="fab fa-font-awesome-flag"></i><span>Report</span>
+          </button>
+        </li>
+      </ul>
+      <!-- Channel Description -->
+      <div class="channel">
+        <div class="metadata">
+          <img src="image/profile.JPG" alt="" />
+          <div class="info">
+            <span class="name">JustKey✔︎</span>
+            <span class="subscribers">1M subscribers</span>
+          </div>
+        </div>
+        <button class="subscribe">subscribe</button>
+      </div>
+    </section>
+    <div class="infoAndUpNext">
+      <section class="upNext">
+        <span class="title">Up next</span>
+        <ul>
+          <li class="item">
+            <div class="img">
+              <img src="image/img1.jpeg" alt="" />
+            </div>
+            <div class="itemInfo">
+              <span class="title"> 모자 추천, 여름 모자 </span>
+              <span class="name">JustKey</span>
+              <span class="views">2K views</span>
+            </div>
+            <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li class="item">
+            <div class="img">
+              <img src="image/img2.jpeg" alt="" />
+            </div>
+            <div class="itemInfo">
+              <span class="title"> 컨버스백 추천 </span>
+              <span class="name">JustKey</span>
+              <span class="views">2K views</span>
+            </div>
+            <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li class="item">
+            <div class="img">
+              <img src="image/img3.jpeg" alt="" />
+            </div>
+            <div class="itemInfo">
+              <span class="title"> 유튜브 섬네일 제작 </span>
+              <span class="name">JustKey</span>
+              <span class="views">2K views</span>
+            </div>
+            <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
