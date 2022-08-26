@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마켓컬리 클론코딩 실습</title>
+    <!-- 슬라이드 스와이퍼 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <!-- 파일 연결 -->
+    <script type="text/javascript" src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <div id="main_page">
+      <div class="small_pop_up">지금 가입하고 인기상품 100원에 받아가세요</div>
+      <section id="header">
+        <div id="header_wrap">
+          <div class="sign_wrap">
+            <a class="sign_up">회원가입</a>
+            <a class="login">로그인</a>
+            <div class="question">
+              <a class="center">고객센터</a>
+              <img src="./image/more_btn.webp" alt="더보기" />
+            </div>
+          </div>
+          <div class="logo_wrap">
+            <div class="logo_image">
+              <img src="./image/logo.svg" alt="컬리 로고" />
+            </div>
+            <div class="logo_fonts">
+              <button class="font_btn1">마켓컬리</button>
+              <button class="font_btn2">뷰티컬리</button>
+              <div class="new_img">
+                <img src="./image/logo_new.svg" alt="new" />
+              </div>
+            </div>
+          </div>
+          <div class="search_wrap">
+            <div class="find_input">
+              <input placeholder="검색어를 입력해주세요" />
+            </div>
+            <div class="find_icon">
+              <img src="./image/find_icon.svg" alt="찾기 아이콘" />
+            </div>
+          </div>
+          <div class="icons_wrap">
+            <div class="icon">
+              <img src="./image/site_icon.svg" alt="배송지 찾기" />
+            </div>
+            <div class="icon">
+              <img src="./image/like_icon.svg" alt="찜하기" />
+            </div>
+            <div class="icon">
+              <img src="./image/bascket_icon.svg" alt="장바구니" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="nav_wrap">
+        <div class="category_wrap">
+          <div class="more_category">
+            <img src="./image/more_list_icon.svg" alt="더많은리스트" />
+            <span class="category">카테고리</span>
+          </div>
+          <ul class="list_wrap">
+            <li class="new">
+              <span>신상품</span>
+            </li>
+            <li class="best">
+              <span>베스트</span>
+            </li>
+            <li class="low_price">
+              <span>알뜰쇼핑</span>
+            </li>
+            <li class="benefit">
+              <span>특가/혜택</span>
+            </li>
+          </ul>
+          <div class="notice">
+            <div class="notice_detail">
+              <span class="notice_text">샛별・낮</span>&nbsp;배송안내
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="main_banner">
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img
+                class="banner_image"
+                src="./image/swiper_image/slide1.avif"
+                alt="Slide 1"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="banner_image"
+                src="./image/swiper_image/slide2.avif"
+                alt="Slide 2"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="banner_image"
+                src="./image/swiper_image/slide3.avif"
+                alt="Slide 3"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination">
+            <div class="swiper-fraction"></div>
+          </div>
+        </div>
+      </section>
+      <!-- Swiper JS -->
+      <script type="text/javascript">
+        new Swiper(".swiper-container", {
+          slidesPerView: "auto", //한번에 보여줄 요소 갯수 지정. auto 로 설정해도 됨.
+          spaceBetween: 30, //슬라이드간 padding 값 30px 씩 떨어뜨려줌
+          loop: false, //loop 를 true 로 할경우 무한반복 슬라이드
+          autoplay: {
+            delay: 3000, //2초에 한번씩 자동으로 슬라이드
+          },
+          pagination: {
+            el: ".swiper-fraction",
+            type: "fraction",
+          },
+        });
+      </script>
+      <section id="recommend_wrap">
+        <div class="recommend_list">
+          <div class="recommend_title">
+            <div class="product_Q">
+              <span class="product_q">이 상품 어때요?</span>
+            </div>
+          </div>
+          <div class="recommend_items">
+            <!-- Swiper -->
+            <div class="mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend1.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">미미네 떡볶이</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount">5%</span>
+                          <span class="sale_price">5,130원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend2.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[풀무원] 생면식감 꽃게탕면</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount">25%</span>
+                          <span class="sale_price">4,088원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend3.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[삼삼물산] 남해안 자연산 손질 바위굴 1kg (냉장)</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount">10%</span>
+                          <span class="sale_price">22,400원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend4.webp"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[탐육] 토마토 미트볼</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount"></span>
+                          <span class="sale_price">11,000원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend5.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[브로드카세] 부드러운 비엔나 쿠키 4종</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount"></span>
+                          <span class="sale_price">5,500원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend6.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[글라스락] 곰표 계량컵</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount"></span>
+                          <span class="sale_price">15,900원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend7.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[그녀의빵공장] 라우겐</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount"></span>
+                          <span class="sale_price">2,500원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item1">
+                    <div class="item_img1">
+                      <img src="./image/swiper_image/recommend8.avif"/>
+                      <div>
+                        <button class="add_bascket">
+                          <img src="./image/swiper_image/basket_icon.svg">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item_info">
+                      <h3 class="item_name">[리큅] 스마트UV 변기살균기 LST-UV3L</h3>
+                      <div class="info_detail">
+                        <div class="product_price">
+                          <span class="discount">31%</span>
+                          <span class="sale_price">29,601원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swiper-button-next">
+              </button>
+              <button class="swiper-button-prev">
+              </button>
+            </div>
+            <!-- Initialize Swiper -->
+            <script>
+              var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                slidesPerGroup: 4,
+                loop: false,
+                loopFillGroupWithBlank: true,
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+              });
+            </script>
+          </div>
+        </div>
+      </section>
+      <section id="line_banner">
+        <div class="line_ban_img">
+          <img src="./image/line_banner_1.jpeg"/>
+        </div>
+      </section>
+      <section id="special_deal">
+        <div class="special_wrap">
+          <div class="deal_info_wrap">
+            <h2>추석특가</h2>
+            <h3>24시간 한정 특가</h3>
+            <div class="deal_detail">
+              <div class="timer_wrap">
+                <img class="clock" src="./image/clock_icon.png"/>
+                <div class="timer">06:39:07</div>
+              </div>
+              <p>망설이면 늦어요!</p>
+            </div>
+          </div>
+          <div class="deal_img_wrap">
+            <div class="deal1_image_container">
+              <img src="./image/special_deal/special_deal_1.jpeg" alt="추석특가 이미지" />
+              <div class="coupon_banner"><span class="banner_name"> 추석선물쿠폰</span></div>
+            </div>
+            <div class="deal1_image_info">
+              <div class="deal1-description">매일매일 색다르게 즐기는 견과</div>
+              <h3 class="deal1-name">HBAF 매일 색다른 먼투썬 하루견과 4주 (20gx28봉)</h3>
+              <div class="deal1-detail">
+                <div class="deal1-saleinfo">
+                  <span class="discount-rate">30%</span>
+                  <span class="sales-price">16,030원</span>
+                </div>
+                  <span class="dimmed-price">22,900원</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="daily_deal">
+        <div class="special_wrap">
+          <div class="deal_info_wrap">
+            <h2>일일특가</h2>
+            <h3>24시간 한정 특가</h3>
+            <div class="deal_detail">
+              <div class="timer_wrap">
+                <img class="clock" src="./image/clock_icon.png"/>
+                <div class="timer">09:54:20</div>
+              </div>
+              <p>망설이면 늦어요!</p>
+            </div>
+          </div>
+          <div class="daily_deal_container">
+            <div class="daily_img_wrap">
+              <div class="daily_image_container">
+                <img src="./image/special_deal/daily1.jpeg" alt="일일특가 이미지" />
+                <div class="daily_banner">
+                  <span class="banner_name">일일특가</span>
+                </div>
+              </div>
+              <div class="daily_image_info">
+                <div class="daily-description">시원한 국물 맛이 일품</div>
+                <h3 class="deal1-name">엄마밥상 대파 육개장</h3>
+                <div class="deal1-detail">
+                  <div class="deal1-saleinfo">
+                    <span class="discount-rate">30%</span>
+                    <span class="sales-price">4,550원</span>
+                  </div>
+                    <span class="dimmed-price">6,500원</span>
+                </div>
+              </div>
+            </div>
+            <div class="daily_img_wrap">
+              <div class="daily_image_container">
+                <img src="./image/special_deal/daily2.webp" alt="일일특가 이미지" />
+                <div class="daily_banner">
+                  <span class="banner_name">+10%쿠폰</span>
+                </div>
+              </div>
+              <div class="daily_image_info">
+                <!-- <div class="daily-description">일일특가2 설명</div> -->
+                <h3 class="deal1-name">[브람스] 컴팩트 안마의자 아미네스 BRAMS-S300(BRAMS-S300)</h3>
+                <div class="deal1-detail">
+                  <div class="deal1-saleinfo">
+                    <span class="discount-rate">72%</span>
+                    <span class="sales-price">690,000원</span>
+                  </div>
+                    <span class="dimmed-price">2,400,000원</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="MD_recommends">
+        <div class="MD_recommend">
+          <div class="MD_title">
+            <div class="MD_T">
+              <span class="md_title">MD의 추천</span>
+            </div>
+          </div>
+          <div class="MD_category">
+            <ul class="MD_cat_list">
+              <li><button class="cat1">채소</button></li>
+              <li><button class="cat2">과일·견과·쌀</button></li>
+              <li><button class="cat3">수산·해산·건어물</button></li>
+              <li><button class="cat4">정육·계란</button></li>
+              <li><button class="cat5">국·반찬·메인요리</button></li>
+              <li><button class="cat6">샐러드·간편식</button></li>
+              <li><button class="cat7">면·양념·오일</button></li>
+              <li><button class="cat8">생수·음료·우유·커피</button></li>
+              <li><button class="cat9">간식·과자·떡</button></li>
+              <li><button class="cat10">베이커리·치즈·델리</button></li>
+              <li><button class="cat11">건강식품</button></li>
+              <li><button class="cat12">와인</button></li>
+              <li><button class="cat13">전통주</button></li>
+              <li><button class="cat14">생활용품·리빙·캠핑</button></li>
+            </ul>
+          </div>
+          <div class="MD_items_container">
+            <div class="MD_items">
+              <!-- Swiper -->
+              <div class="mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/MD_recommend/md1.avif"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[선물세트] 인텔리젠시아 게이샤 콜드브루 세트</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount">10%</span>
+                            <span class="sale_price">33,750원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/MD_recommend/md2.webp"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[선물세트] 폴 바셋 드립백 세트 18개입</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount">10%</span>
+                            <span class="sale_price">27,000원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/MD_recommend/md3.avif"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[선물세트] 쌍계명차 큐브우드 티 8종 (16개입)</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount">22%</span>
+                            <span class="sale_price">30,900원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/MD_recommend/md4.webp"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[선물세트] 오설록 러블리 티 박스 4종</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount"></span>
+                            <span class="sale_price">20,000원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/recommend5.avif"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[브로드카세] 부드러운 비엔나 쿠키 4종</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount"></span>
+                            <span class="sale_price">5,500원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/recommend6.avif"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[글라스락] 곰표 계량컵</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount"></span>
+                            <span class="sale_price">15,900원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/recommend7.avif"/>
+                        <div>
+                          <button class="add_bascket">
+                            <img src="./image/swiper_image/basket_icon.svg">
+                          </button>
+                        </div>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[그녀의빵공장] 라우겐</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount"></span>
+                            <span class="sale_price">2,500원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item1">
+                      <div class="item_img1">
+                        <img src="./image/swiper_image/recommend8.avif"/>
+                      </div>
+                      <div class="item_info">
+                        <h3 class="item_name">[리큅] 스마트UV 변기살균기 LST-UV3L</h3>
+                        <div class="info_detail">
+                          <div class="product_price">
+                            <span class="discount">31%</span>
+                            <span class="sale_price">29,601원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="swiper-button-next">
+                </button>
+                <button class="swiper-button-prev">
+                </button>
+              </div>
+              <!-- Initialize Swiper -->
+              <script>
+                var swiper = new Swiper(".mySwiper", {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                  slidesPerGroup: 4,
+                  loop: false,
+                  loopFillGroupWithBlank: true,
+                  navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                  },
+                });
+              </script>
+            </div>
+            <div class="category1_all">
+              <span class="cat1_all">생수·음료·우유·커피 전체보기</span>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  </body>
+</html>
