@@ -297,24 +297,24 @@ padding: 40px 0px;
   margin: 0px auto;
   margin-left: auto;
 }
-.recommend_items > .mySwiper,
-.MD_items > .mySwiper {
-  position: relative;
+.recommend_items .mySwiper .swiper-wrapper ,
+.MD_items .mySwiper .swiper-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
+}
+.mySwiper {
+  width: 1050px;
+  margin: 0px auto;
   overflow: hidden;
 }
-.mySwiper button {
-  border: none;
-  overflow: visible;
+.swiper-container {
+  position: relative;
 }
 .swiper-button-prev {
   background: url(./image/swiper_image/prev_btn.svg) 50% 50% no-repeat;
   width: 60px;
   height: 60px;
-  position: absolute;
-  /* border: none; */
   transform: translate(50%, -50%);
   left: -60px;
 }
@@ -322,8 +322,6 @@ padding: 40px 0px;
   background: url(./image/swiper_image/post_btn.svg) 50% 50% no-repeat;
   width: 60px;
   height: 60px;
-  position: absolute;
-  /* border: none; */
   transform: translate(50%, -50%) rotate(180deg);
   right: 0px;
 }
@@ -331,11 +329,15 @@ padding: 40px 0px;
 .swiper-button-prev::after {
   display: none;
 }
-.mySwiper > .swiper-wrapper > .swiper-slide {
+.swiper-container button {
+  border: none;
+  position: absolute;
+}
+.mySwiper .swiper-wrapper > .swiper-slide {
   cursor: pointer;
   width: 265px;
 }
-.mySwiper > .swiper-wrapper > .swiper-slide > .item1 {
+.mySwiper .swiper-wrapper > .swiper-slide > .item1 {
   cursor: pointer;
   width: 249px;
 }
