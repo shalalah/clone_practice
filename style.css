@@ -167,13 +167,23 @@ input:focus {outline:none;}
 
 /* nav_bar */
 #nav_wrap {
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: space-between;
-  width: 1050px;
+  width: 100%;
   height: 56px;
   margin: 0 auto;
+  background-color: #fff;
+  position: sticky;
+  padding-top: 10px;
+  top: -10px;
+  z-index: 2;
 }
+/* #nav_wrap.sticky {
+  position:sticky;
+  top: 0px;
+  width: 100%;
+} */
 .category_wrap {
   position: relative;
   display: flex;
@@ -261,6 +271,7 @@ input:focus {outline:none;}
   font-size: 14px;
   font-weight: 400;
   border-radius: 12px;
+  z-index: 1;  
 }
 /* 추천상품 */
 .recommend_list {
@@ -308,7 +319,8 @@ padding: 40px 0px;
   margin: 0px auto;
   overflow: hidden;
 }
-.swiper-container {
+#recommend_wrap .swiper-container,
+#MD_recommends .swiper-container {
   position: relative;
 }
 .swiper-button-prev {
@@ -329,9 +341,11 @@ padding: 40px 0px;
 .swiper-button-prev::after {
   display: none;
 }
-.swiper-container button {
+#recommend_wrap .swiper-container button,
+#MD_recommends .swiper-container button {
   border: none;
   position: absolute;
+  z-index: 1;
 }
 .mySwiper .swiper-wrapper > .swiper-slide {
   cursor: pointer;
@@ -342,6 +356,11 @@ padding: 40px 0px;
   width: 249px;
 }
 .item_img1 {
+  display: flex;
+  height: 320px;
+  position: relative;
+}
+.item_img1 > a > img{
   display: flex;
   height: 320px;
   position: relative;
@@ -611,3 +630,4 @@ padding: 40px 0px;
 .MD_items {
   margin: 20px 0px 30px;
 }
+
