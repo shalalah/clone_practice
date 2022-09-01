@@ -179,11 +179,6 @@ input:focus {outline:none;}
   top: -10px;
   z-index: 2;
 }
-/* #nav_wrap.sticky {
-  position:sticky;
-  top: 0px;
-  width: 100%;
-} */
 .category_wrap {
   position: relative;
   display: flex;
@@ -242,7 +237,7 @@ input:focus {outline:none;}
 }
 /* 배너 */
 #main_banner {
-  max-width: 1900px;
+  min-width: 1580px;
   margin: 0 auto 40px;
   overflow: hidden;
 }

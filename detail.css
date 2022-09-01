@@ -1,0 +1,285 @@
+/* css 초기화 */
+@import "reset.css";
+/* 글꼴 */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.detail_page {
+    position: relative;
+    width: 100%;
+}
+#detail-page1 {
+    position: relative;
+    width: 1050px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.detail-item1 {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Noto Sans";
+}
+.detail-item1-img {
+    width: 430px;
+    height: 552px;
+    background: url(./image/detail_page_img/detail_item_1.jpeg)50% 50% no-repeat;
+}
+
+/* 주요 표시 내용 */
+#detail-item-info-container {
+    width: 560px;
+}
+#detail-item-info-container .early-delivery {
+    font-weight: 500;
+    line-height: 1.36;
+    letter-spacing: -0.5px;
+    color: rgb(153, 153, 153);
+    margin-bottom: 6px;
+    width: 500px;
+}
+
+.detail-item1-detail {
+    display: flex;
+    flex-direction: column;
+}
+.detail-item1-name {
+    display: flex;
+    justify-content: space-between;
+}
+.detail-item1-name .item1-name {
+    width: 500px;
+    font-weight: 500;
+    font-size: 24px;
+    color: rgb(51, 51, 51);
+    line-height: 34px;
+    letter-spacing: -0.5px;
+    margin-right: 20px;
+}
+.detail-item1-name .share {
+    width: 40px;
+    height: 40px;
+    background: url(./image/detail_page_img/share_icon.svg) 50% 50% no-repeat;
+    border: none;
+}
+.detail-item1-name .detail-item1-desc {
+    padding-top: 5px;
+    font-size: 14px;
+    color: rgb(181, 181, 181);
+    line-height: 19px;
+    letter-spacing: -0.5px;
+}
+/* 가격 안내 */
+.detail-item1-sale-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 19px;
+    font-weight: bold;
+    line-height: 30px;
+    letter-spacing: -0.5px;
+}
+.detail-item1-saleinfo .discount-rate {
+    padding-right: 9px;
+    font-size: 28px;
+    color: rgb(250, 98, 47);
+}
+.detail-item1-saleinfo .sales-price {
+    padding-right: 4px;
+    font-size: 28px;
+    color: rgb(51, 51, 51);
+}
+.detail-item1-saleinfo .sales-price-unit {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    font-size: 18px;
+    color: rgb(51, 51, 51);
+    vertical-align: top;
+}
+.detail-item1-sale-container .dimmed-price-wrap {
+    padding-top: 9px;
+}
+.dimmed-price-wrap .dimmed-price {
+    font-size: 16px;
+    color: rgb(181, 181, 181);
+    text-decoration: line-through;
+    margin-right: 0px;
+    letter-spacing: -0.5px;
+}
+.dimmed-price-wrap img {
+    width: 21px;
+    height: 21px;
+    vertical-align: -4px;
+    padding-left: 1px;
+    cursor: pointer;
+}
+
+.login-price-notice .detail-price-notice {
+    font-size: 14px;
+    color: rgb(95, 0, 128);
+    line-height: 19px;
+    height: 19px;
+    letter-spacing: -0.5px;
+    margin-top: 14px;
+}
+/* 상품관련 주요사항 요약 테이블 */
+.detail-item1-info-container {
+    margin-top: 20px;
+}
+.detail-item1-info-container .detail-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 100%;
+    padding: 17px 0px 18px;
+    border-top: 1px solid rgb(244, 244, 244);
+    font-size: 14px;
+    letter-spacing: -0.5px;
+}
+.detail-info-container .detail-info-title {
+    position: relative;
+    top: 1px;
+    width: 128px;
+    height: 100%;
+    color: rgb(102, 102, 102);
+    line-height: 19px;
+}
+.detail-info-container .detail-info-wrap {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+}
+.detail-info-container .detail-info-name {
+    color: rgb(51, 51, 51);
+    line-height: 19px;
+    white-space: pre-line;
+    word-break: break-all;
+    overflow: hidden;
+}
+.detail-info-container .detail-info-desc {
+    display: block;
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+    padding-top: 4px;
+    line-height: 16px;
+    white-space: pre-line;
+}
+/* 구매내용 선택 */
+.detail-item1-select {
+    padding-bottom: 40px;
+}
+.detail-item1-select .detail-info-container {
+    border-bottom: 1px solid rgb(244, 244, 244);
+    display: flex;
+}
+.detail-info-container .item1-select1 {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+}
+.item1-select1 .select1_number {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    /* min-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    vertical-align: top; */
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}
+.item1-select1 .select1_number > select {
+    height: 40px;
+}
+
+.detail-item1-select .item1-price-info {
+    padding-top: 30px;
+}
+.item1-price-info .total-price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.total-price .price-title {
+    padding-right: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+}
+.total-price .price {
+    font-weight: bold;
+    font-size: 32px;
+    color: rgb(51, 51, 51);
+    line-height: 36px;
+}
+.total-price .price-unit {
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    line-height: 30px;
+}
+.item1-price-info {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+.item1-price-info .point-highlight {
+    background-color: rgb(255, 191, 0);
+    margin: 1px 6px 0px 0px;
+    padding: 0px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    line-height: 20px;
+}
+.item1-price-info .point-notice {
+    line-height: 1.45;
+    color: rgb(102, 102, 102);
+}
+/* 선택 아이콘들 */
+.select1-icons .icons-wrap {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+.icons-wrap button {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    width: 56px;
+    height: 56px;
+    border-radius: 3px;
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(221, 221, 221);
+}
+.icons-wrap button > img {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+.cart-btn-wrap {
+    width: 100%;
+}
+.cart-btn-wrap .cart-btn {
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    min-width: 450px;
+    height: 52px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(95, 0, 128);
+    border: 0px none;
+}
+.cart-btn-wrap .cart-btn > span {
+    /* display: inline-block; */
+    font-size: 16px;
+    font-weight: 500;
+}

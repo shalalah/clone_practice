@@ -4,12 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마켓컬리 상세페이지 클론코딩</title>
+    <!-- 파일 연결 -->
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="detail.css" />
     <script src="detail.js" defer></script>
 </head>
 <body>
-    <div>
-        <span>상품 상세페이지를 만들겁니다~! </span>
+    <div id="DetailPage1">
+        <div class="small_pop_up">지금 가입하고 인기상품 100원에 받아가세요</div>
+        <section id="header">
+            <div id="header_wrap">
+            <div class="sign_wrap">
+                <a class="sign_up">회원가입</a>
+                <a class="login">로그인</a>
+                <div class="question">
+                <a class="center">고객센터</a>
+                <img src="./image/more_btn.webp" alt="더보기" />
+                </div>
+            </div>
+            <div class="logo_wrap">
+                <div class="logo_image">
+                <img src="./image/logo.svg" alt="컬리 로고" />
+                </div>
+                <div class="logo_fonts">
+                <button class="font_btn1">마켓컬리</button>
+                <button class="font_btn2">뷰티컬리</button>
+                <div class="new_img">
+                    <img src="./image/logo_new.svg" alt="new" />
+                </div>
+                </div>
+            </div>
+            <div class="search_wrap">
+                <div class="find_input">
+                <input placeholder="검색어를 입력해주세요" />
+                </div>
+                <div class="find_icon">
+                <img src="./image/find_icon.svg" alt="찾기 아이콘" />
+                </div>
+            </div>
+            <div class="icons_wrap">
+                <div class="icon">
+                <img src="./image/site_icon.svg" alt="배송지 찾기" />
+                </div>
+                <div class="icon">
+                <img src="./image/like_icon.svg" alt="찜하기" />
+                </div>
+                <div class="icon">
+                <img src="./image/bascket_icon.svg" alt="장바구니" />
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="nav_wrap">
+            <div class="category_wrap">
+            <div class="more_category">
+                <img src="./image/more_list_icon.svg" alt="더많은리스트" />
+                <span class="category">카테고리</span>
+            </div>
+            <ul class="list_wrap">
+                <li class="new">
+                <span>신상품</span>
+                </li>
+                <li class="best">
+                <span>베스트</span>
+                </li>
+                <li class="low_price">
+                <span>알뜰쇼핑</span>
+                </li>
+                <li class="benefit">
+                <span>특가/혜택</span>
+                </li>
+            </ul>
+            <div class="notice">
+                <div class="notice_detail">
+                <span class="notice_text">샛별・낮</span>&nbsp;배송안내
+                </div>
+            </div>
+            </div>
+        </section>
+        <div class="detail_page">
+            <main id="detail-page1">
+                <article class="detail-item1">
+                    <section class="detail-item1-img">
+                    </section>
+                    <section id="detail-item-info-container">
+                        <div class="early-delivery">샛별배송</div>
+                        <div class="detail-item1-detail">
+                            <div class="detail-item1-name">
+                                <h2 class="item1-name">미미네 떡볶이</h2>
+                                <button class="share"></button>
+                            </div>
+                            <div class="detail-item1-desc">
+                                드디어, 집에서 만나는 미미네 떡볶이
+                            </div>
+                        </div>
+                        <div class="detail-item1-sale-container">
+                            <div class="detail-item1-saleinfo">
+                                <span class="discount-rate">5%</span>
+                                <span class="sales-price">5,130원</span>
+                                <span class="sales-price-unit">원</span>
+                            </div>
+                            <div class="dimmed-price-wrap">
+                                <span class="dimmed-price">5,400원</span>
+                                <img src="./image/detail_page_img/quest_icon.svg"/>
+                            </div>
+                            <div class="login-price-notice">
+                                <span class="detail-price-notice">
+                                    로그인 후,할인 및 적립 혜택이 제공됩니다.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="detail-item1-info-container">
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">배송</dt>
+                                <dd class="detail-info-wrap">
+                                    <p class="detail-info-name">샛별배송</p>
+                                    <p class="detail-info-desc">23시 전 주문 시 내일 아침 7시 전 도착
+                                        (대구·부산·울산 샛별배송 운영시간 별도 확인)</p>
+                                </dd>
+                            </dl>
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">판매자</dt>
+                                <dd class="detail-info-wrap">
+                                    <p class="detail-info-name">컬리</p>
+                                </dd>                                
+                            </dl>
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">포장타입</dt>
+                                <dd class="detail-info-wrap">
+                                    <p class="detail-info-name">냉장/냉동 (종이포장)</p>
+                                    <p class="detail-info-desc">택배배송은 에코 포장이 스티로폼으로 대체됩니다.</p>
+                                </dd>                                
+                            </dl>
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">판매단위</dt>
+                                <dd class="detail-info-wrap">
+                                    <p class="detail-info-name">1팩</p>
+                                </dd>                                
+                            </dl>
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">중량/용량</dt>
+                                <dd class="detail-info-wrap">
+                                    <p class="detail-info-name">570g</p>
+                                </dd>                                
+                            </dl>
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">알레르기정보</dt>
+                                <dd class="detail-info-wrap">
+                                    <p class="detail-info-name">- 대두, 밀 함유
+                                        - 이 제품은 난류, 우유, 메밀, 땅콩, 고등어, 게, 새우, 돼지고기, 복숭아, 오징어, 아황산류, 호두, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함), 잣 등을 사용하는 제품과 같은 제조시설에서 제조하고 있습니다.</p>
+                                </dd>                                
+                            </dl>
+                        </div>
+                        <div class="detail-item1-select">
+                            <dl class="detail-info-container">
+                                <dt class="detail-info-title">상품선택</dt>
+                                <div class="item1-select1">
+                                    <div class="select1_number">
+                                        <select name="상품선택" id="detail-num-select">
+                                            <option value="choice" selected>상품을 선택해주세요</option>
+                                            <option value="떡볶이">미미네 떡볶이</option>
+                                            <option value="쿨피스">[쿨피스 x 마켓컬리] 쿨피스 프리미엄 복숭아맛</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </dl>
+                            <div class="item1-price-info">
+                                <div class="select1-price">
+                                    <div class="total-price">
+                                        <span class="price-title">총 상품금액 :</span>
+                                        <span class="price">0</span>
+                                        <span class="price-unit">원</span>
+                                    </div>
+                                    <div class="point-info">
+                                        <span class="point-highlight">적립</span>
+                                        <span class="point-notice">로그인 후, 할인 및 적립 혜택 제공</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="select1-icons">
+                                <div class="icons-wrap">
+                                    <button class="like-button">
+                                        <img src="./image/detail_page_img/like_purple_icon.svg" alt="좋아요">
+                                    </button>
+                                    <button class="alarm-button">
+                                        <img src="./image/detail_page_img/alarm_icon.svg" alt="알림">
+                                    </button>
+                                    <div class="cart-btn-wrap">
+                                        <button class="cart-btn">
+                                            <span class="cart">장바구니 담기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="detail-item-info-detail-container">
+                        <div class="detail-item1-info"></div>
+                    </section>
+                </article>
+            </main>
+        </div>
     </div>
 </body>
 </html>
