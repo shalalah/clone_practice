@@ -283,3 +283,83 @@
     font-size: 16px;
     font-weight: 500;
 }
+
+/* 중간 nav바 */
+.mid-nav {
+    z-index: 20;
+    position: sticky;
+    top: 56px;
+    width: 1010px;
+    box-shadow: rgb(221 221 221) 0px -0.5px 0px 0px inset;
+    background-color: rgb(255, 255, 255);
+    margin-top: 50px;
+}
+.mid-nav .mid-nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 60px;
+}
+.mid-nav-container .explain-wrap,
+.mid-nav-container .more-detail-wrap,
+.mid-nav-container .review-wrap,
+.mid-nav-container .qna-wrap {
+    display: flex;
+    flex: 1 1 0%;
+    border-width: 1px 0px 0px 1px;
+    border-color: rgb(238, 238, 238);
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+}
+.mid-nav-container a {
+    display: flex;
+    flex: 1 1 0%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+}
+.mid-nav-container span {
+    font-size: 16px;
+    font-weight: 500;
+}
+.mid-nav-container .explain-wrap span {
+    color: rgb(95, 0, 128);
+}
+.more-detail-wrap span,
+.review-wrap span,
+.qna-wrap span {
+    color: rgb(102, 102, 102);
+}
+
+/* 상세페이지 상품 디테일 정보 */
+#detail-item-details {
+    padding-bottom: 60px;
+}
+#detail-item-details .item1-detail-info-container {
+    width: 1010px;
+    margin: 0px auto;
+    font-family: "Noto Sans";
+    font-weight: 300;
+    letter-spacing: 0px;
+}
+.detail-item1-description {
+    width: 100%;
+}
+.pic-context {
+    margin-bottom: 170px;
+}
+.pic-context h3 {
+    display: block;
+    margin: 75px 0px 0px;
+    padding-bottom: 35px;
+    font-size: 38px;
+    line-height: 46px;
+    text-align: center;
+    border-bottom: 1px solid rgb(193, 193, 193);
+    color: rgb(102, 102, 102);
+}
+.pic-context p {
+    font-size: 18px;
+    line-height: 32px;
+    color: rgb(55, 55, 55);
+}
