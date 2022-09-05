@@ -237,7 +237,7 @@ input:focus {outline:none;}
 }
 /* 배너 */
 #main_banner {
-  min-width: 10500px;
+  min-width: 1050px;
   margin: 0 auto 40px;
   overflow: hidden;
 }
