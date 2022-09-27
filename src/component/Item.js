@@ -39,7 +39,7 @@ export default function Item(props) {
                 onClick={() => {
                     let list = [...data];
                     list.sort((a, b) => {
-                        console.log(typeof a.title);
+                        // console.log(typeof a.title);
                         let A = a.title.toLowerCase();
                         let B = b.title.toLowerCase();
                         return A < B ? -1 : A == B ? 0 : 1;

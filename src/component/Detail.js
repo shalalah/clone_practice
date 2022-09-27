@@ -17,14 +17,24 @@ const YellowBox = styled.div`
 
 const Detail = (props) => {
     useEffect(() => {
-        setTimeout(() => setAppear(false), 2000);
+        let time = setTimeout(() => {
+            setAppear(false);
+        }, 2000);
+        console.log(2);
+        return () => {
+            clearTimeout(time);
+            console.log(1);
+        };
     }, []);
+
+    const navigate = useNavigate();
+
     const [count, setCount] = useState(0);
     const [appear, setAppear] = useState(true);
-    const navigate = useNavigate();
 
     const { id } = useParams();
     // console.log(id);
+    // 데이터 자료에서 고유의 값으로 상품 상세페이지 이동할 수 있도록 find()함수 사용
     const product = props.items.find((x) => x.id == id);
     // console.log(product);
 
