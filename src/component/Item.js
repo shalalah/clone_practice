@@ -1,12 +1,13 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import bg from "../assets/slide2.avif";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-
-import bg from "../assets/slide2.avif";
-
 import styled from "styled-components";
-import { useState } from "react";
+
 const MainContainer = styled.div`
     position: relative;
 `;
@@ -29,7 +30,6 @@ export default function Item(props) {
 
     const [data, setData] = useState(props.items);
     // console.log(data);
-
     return (
         <MainContainer>
             <MainBg></MainBg>
@@ -64,6 +64,23 @@ export default function Item(props) {
                         </Col>
                     ))}
             </Row>
+            <Button
+                variant="light"
+                onClick={() => {
+                    axios
+                        .get("https://codingapple1.github.io/shop/data2.json")
+                        .then((server) => {
+                            console.log(server);
+                            let list = [...data, ...server.data];
+                            setData(list);
+                        })
+                        .catch(() => {
+                            console.log("실패");
+                        });
+                }}
+            >
+                더 보기
+            </Button>
         </MainContainer>
     );
 }

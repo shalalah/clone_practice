@@ -28,7 +28,7 @@ let data = [
         src: Item3,
     },
     {
-        id: 3,
+        id: 7,
         title: "Purple",
         content: "Born in the UK",
         price: 150000,
