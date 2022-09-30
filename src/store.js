@@ -13,22 +13,18 @@ let cart = createSlice({
     // state 변경하는 방법
     reducers: {
         changeCount(state, action) {
-            // state[action.payload].count += 1;
-            state.map((a, i) => {
-                if (a.id === action.payload) {
-                    state[i].count++;
-                }
+            let num = state.findIndex((item) => {
+                return item.id === action.payload;
             });
-
-            let num = state.findIndex((a) => {
-                return a == action.payload;
-            });
-            console.log("num");
-            console.log(num);
+            state[num].count += 1;
+        },
+        addState(state, action) {
+            state.push(action.payload);
+            // console.log(action.payload);
         },
     },
 });
-export let { changeCount } = cart.actions;
+export let { changeCount, addState } = cart.actions;
 
 export default configureStore({
     reducer: {

@@ -5,10 +5,13 @@ import Button from "react-bootstrap/Button";
 import "../Detail.css";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, Outlet, useParams } from "react-router-dom";
+
 // Context API 로 store 가져오기
 import { Context1 } from "../App";
 
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { addState } from "../store";
 
 const DetailPage = styled.div`
     height: 100px;
@@ -22,8 +25,9 @@ const YellowBox = styled.div`
 
 const Detail = (props) => {
     const navigate = useNavigate();
-    let { store } = useContext(Context1); // 보관함해체
+    const dispatch = useDispatch();
 
+    let { store } = useContext(Context1); // 보관함해체
     const [count, setCount] = useState(0);
     const [appear, setAppear] = useState(true);
     const [num, setNum] = useState("");
@@ -48,7 +52,6 @@ const Detail = (props) => {
     // 데이터 자료에서 고유의 값으로 상품 상세페이지 이동할 수 있도록 find()함수 사용
     const product = props.items.find((x) => x.id == id);
     // console.log(product);
-
     return (
         <DetailPage>
             {appear === true ? <YellowBox>{store}</YellowBox> : null}
@@ -84,6 +87,13 @@ const Detail = (props) => {
                 <Button
                     variant="warning"
                     onClick={() => {
+                        dispatch(
+                            addState({
+                                id: product.id,
+                                name: product.title,
+                                count: 1,
+                            })
+                        );
                         setCount(count + 1);
                         navigate("/detail/" + `${id}` + "/location");
                     }}
