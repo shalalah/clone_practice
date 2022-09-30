@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import bg from "../assets/slide2.avif";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import { Row, Col, Button } from "react-bootstrap";
+// import Col from "react-bootstrap/Col";
+// import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
@@ -17,6 +17,11 @@ const MainBg = styled.div`
     background-size: cover;
     background-position: center;
     margin-bottom: 10px;
+`;
+const MainWrapper = styled.div`
+    margin: 0 auto;
+    max-width: 1500px;
+    text-align: center;
 `;
 const ItemImg = styled.img`
     width: 80%;
@@ -34,53 +39,57 @@ export default function Item(props) {
         <MainContainer>
             <MainBg></MainBg>
             {/* title순으로 정렬 */}
-            <Button
-                variant="outline-info"
-                onClick={() => {
-                    let list = [...data];
-                    list.sort((a, b) => {
-                        // console.log(typeof a.title);
-                        let A = a.title.toLowerCase();
-                        let B = b.title.toLowerCase();
-                        return A < B ? -1 : A == B ? 0 : 1;
-                    });
-                    setData(list);
-                }}
-            >
-                정렬
-            </Button>
-            <Row>
-                {data.length > 0 &&
-                    data.map((item, idx) => (
-                        <Col key={item.id}>
-                            <ItemImg
-                                src={item.src}
-                                onClick={() => {
-                                    navigate("/detail/" + `${item.id}`);
-                                }}
-                            ></ItemImg>
-                            <ItemTitle>{item.title}</ItemTitle>
-                            <Desc>{item.price}</Desc>
-                        </Col>
-                    ))}
-            </Row>
-            <Button
-                variant="light"
-                onClick={() => {
-                    axios
-                        .get("https://codingapple1.github.io/shop/data2.json")
-                        .then((server) => {
-                            console.log(server);
-                            let list = [...data, ...server.data];
-                            setData(list);
-                        })
-                        .catch(() => {
-                            console.log("실패");
+            <MainWrapper>
+                <Button
+                    variant="outline-info"
+                    onClick={() => {
+                        let list = [...data];
+                        list.sort((a, b) => {
+                            // console.log(typeof a.title);
+                            let A = a.title.toLowerCase();
+                            let B = b.title.toLowerCase();
+                            return A < B ? -1 : A == B ? 0 : 1;
                         });
-                }}
-            >
-                더 보기
-            </Button>
+                        setData(list);
+                    }}
+                >
+                    정렬
+                </Button>
+                <Row>
+                    {data.length > 0 &&
+                        data.map((item, idx) => (
+                            <Col key={item.id}>
+                                <ItemImg
+                                    src={item.src}
+                                    onClick={() => {
+                                        navigate("/detail/" + `${item.id}`);
+                                    }}
+                                ></ItemImg>
+                                <ItemTitle>{item.title}</ItemTitle>
+                                <Desc>{item.price}</Desc>
+                            </Col>
+                        ))}
+                </Row>
+                <Button
+                    variant="light"
+                    onClick={() => {
+                        axios
+                            .get(
+                                "https://codingapple1.github.io/shop/data2.json"
+                            )
+                            .then((server) => {
+                                console.log(server);
+                                let list = [...data, ...server.data];
+                                setData(list);
+                            })
+                            .catch(() => {
+                                console.log("실패");
+                            });
+                    }}
+                >
+                    더 보기
+                </Button>
+            </MainWrapper>
         </MainContainer>
     );
 }

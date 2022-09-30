@@ -3,8 +3,10 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import "../Detail.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate, Outlet, useParams } from "react-router-dom";
+// Context API 로 store 가져오기
+import { Context1 } from "../App";
 
 import styled from "styled-components";
 
@@ -20,6 +22,7 @@ const YellowBox = styled.div`
 
 const Detail = (props) => {
     const navigate = useNavigate();
+    let { store } = useContext(Context1); // 보관함해체
 
     const [count, setCount] = useState(0);
     const [appear, setAppear] = useState(true);
@@ -48,10 +51,8 @@ const Detail = (props) => {
 
     return (
         <DetailPage>
+            {appear === true ? <YellowBox>{store}</YellowBox> : null}
             <div className={`start ${fade}`}>
-                {appear === true ? (
-                    <YellowBox>2초 이내 구매시 할인</YellowBox>
-                ) : null}
                 <Col>
                     <Card>
                         <Card.Img
@@ -131,6 +132,8 @@ const Detail = (props) => {
 
 function TabContent({ tab, items }) {
     // console.log(items.title);
+    let { store } = useContext(Context1); // props대신에 사용하 수 있는 contextAPI
+    console.log(store);
     return [
         <div>{items.title}</div>,
         <div>{items.price}</div>,
