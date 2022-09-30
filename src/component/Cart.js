@@ -5,7 +5,7 @@ import { Table, Button } from "react-bootstrap";
 // state 가져오기, 변경함수 가져오기
 import { useSelector, useDispatch } from "react-redux";
 //state변경함수 가져오기
-import { changeName, increase, changeCount } from "../store";
+import { changeName, increase, changeCount, deleteItem } from "../store";
 
 export default function Cart() {
     let state = useSelector((state) => state);
@@ -44,8 +44,8 @@ export default function Cart() {
                         <th></th>
                         <th>상품명</th>
                         <th>수량</th>
-                        <th>변경하기</th>
-                        <th></th>
+                        <th>추가하기</th>
+                        <th>삭제하기</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +63,16 @@ export default function Cart() {
                                     }}
                                 >
                                     +
+                                </Button>
+                            </td>
+                            <td>
+                                <Button
+                                    variant="outline-info"
+                                    onClick={() => {
+                                        dispatch(deleteItem(item.id));
+                                    }}
+                                >
+                                    x
                                 </Button>
                             </td>
                         </tr>

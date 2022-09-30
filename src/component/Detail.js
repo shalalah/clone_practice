@@ -41,7 +41,7 @@ const Detail = (props) => {
         setTimeout(() => {
             setAppear(false);
             setFade("end");
-        }, 2000);
+        }, 1000);
         if (isNaN(num) == true) {
             alert("숫자만 입력하세요");
         }
