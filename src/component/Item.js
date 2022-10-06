@@ -4,9 +4,8 @@ import axios from "axios";
 
 import bg from "../assets/slide2.avif";
 import { Row, Col, Button } from "react-bootstrap";
-// import Col from "react-bootstrap/Col";
-// import Button from "react-bootstrap/Button";
 import styled from "styled-components";
+import CurrentItems from "./CurrentItems";
 
 const MainContainer = styled.div`
     position: relative;
@@ -35,6 +34,7 @@ export default function Item(props) {
 
     const [data, setData] = useState(props.items);
     // console.log(data);
+
     return (
         <MainContainer>
             <MainBg></MainBg>
@@ -55,7 +55,7 @@ export default function Item(props) {
                 >
                     정렬
                 </Button>
-                <Row>
+                <Row style={{ maxWidth: "1050px", margin: "0 auto" }}>
                     {data.length > 0 &&
                         data.map((item, idx) => (
                             <Col key={item.id}>
@@ -90,6 +90,7 @@ export default function Item(props) {
                     더 보기
                 </Button>
             </MainWrapper>
+            <CurrentItems data={data} />
         </MainContainer>
     );
 }

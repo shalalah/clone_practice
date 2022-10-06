@@ -41,21 +41,21 @@ export default function Cart() {
                 <thead>
                     {/* tr 가로줄, th 와 td 넣으면 열 하나 생김 */}
                     <tr>
-                        <th></th>
-                        <th>상품명</th>
-                        <th>수량</th>
-                        <th>추가하기</th>
-                        <th>삭제하기</th>
+                        <th className="tableTitle">상품번호</th>
+                        <th className="tableTitle">상품명</th>
+                        <th className="tableTitle">수량</th>
+                        <th className="tableTitle">추가하기</th>
+                        <th className="tableTitle">삭제하기</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cart.map((item, i) => (
                         // console.log(item.id);
                         <tr key={item.id}>
-                            <td>{item.id}</td>
-                            <td>{item.name}</td>
-                            <td>{item.count}</td>
-                            <td>
+                            <td className="tableTitle">{item.id}</td>
+                            <td className="tableTitle">{item.name}</td>
+                            <td className="tableTitle">{item.count}</td>
+                            <td className="tableTitle">
                                 <Button
                                     variant="outline-info"
                                     onClick={() => {
@@ -65,7 +65,7 @@ export default function Cart() {
                                     +
                                 </Button>
                             </td>
-                            <td>
+                            <td className="tableTitle">
                                 <Button
                                     variant="outline-info"
                                     onClick={() => {
@@ -83,7 +83,10 @@ export default function Cart() {
     );
 }
 const CartContainer = styled.div`
-    width: 1050px;
+    max-width: 1050px;
     margin: 0 auto;
     padding-top: 25px;
+    .tableTitle {
+        text-align: center;
+    }
 `;

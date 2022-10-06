@@ -7,11 +7,12 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate, Outlet, useParams } from "react-router-dom";
 
 // Context API 로 store 가져오기
-import { Context1 } from "../App";
+// import { Context1 } from "../App";
 
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { addState } from "../store";
+import CurrentItems from "./CurrentItems";
 
 const DetailPage = styled.div`
     height: 100px;
@@ -27,7 +28,7 @@ const Detail = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    let { store } = useContext(Context1); // 보관함해체
+    // let { store } = useContext(Context1); // 보관함해체
     const [count, setCount] = useState(0);
     const [appear, setAppear] = useState(true);
     const [num, setNum] = useState("");
@@ -52,9 +53,25 @@ const Detail = (props) => {
     // 데이터 자료에서 고유의 값으로 상품 상세페이지 이동할 수 있도록 find()함수 사용
     const product = props.items.find((x) => x.id == id);
     // console.log(product);
+
+    // localStorage - array/obj 의 경우 JSON 사용해서 저장해줘야함
+    useEffect(() => {
+        //수정하기 위해 꺼내기 , 꺼낸 것을 변수에 저장
+        let currentList = localStorage.getItem("watched");
+        // console.log(typeof currentList); string으로 출력
+        currentList = JSON.parse(currentList);
+        // console.log(currentList); 배열로 출력
+        currentList.push(product.id);
+        // set 자료형
+        currentList = new Set(currentList);
+        // Array.from() 메서드
+        currentList = Array.from(currentList);
+        localStorage.setItem("watched", JSON.stringify(currentList));
+    }, []);
+
     return (
         <DetailPage>
-            {appear === true ? <YellowBox>{store}</YellowBox> : null}
+            {/* {appear === true ? <YellowBox>{store}</YellowBox> : null} */}
             <div className={`start ${fade}`}>
                 <Col>
                     <Card>
@@ -136,14 +153,15 @@ const Detail = (props) => {
                 </Nav>
                 <TabContent tab={tab} items={product} />
             </div>
+            <CurrentItems data={props.items} />
         </DetailPage>
     );
 };
 
 function TabContent({ tab, items }) {
     // console.log(items.title);
-    let { store } = useContext(Context1); // props대신에 사용하 수 있는 contextAPI
-    console.log(store);
+    // let { store } = useContext(Context1); // props대신에 사용하 수 있는 contextAPI
+    // console.log(store);
     return [
         <div>{items.title}</div>,
         <div>{items.price}</div>,
