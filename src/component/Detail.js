@@ -55,6 +55,7 @@ const Detail = (props) => {
     // console.log(product);
 
     // localStorage - array/obj 의 경우 JSON 사용해서 저장해줘야함
+    let [current, setCurrent] = useState([]);
     useEffect(() => {
         //수정하기 위해 꺼내기 , 꺼낸 것을 변수에 저장
         let currentList = localStorage.getItem("watched");
@@ -67,6 +68,7 @@ const Detail = (props) => {
         // Array.from() 메서드
         currentList = Array.from(currentList);
         localStorage.setItem("watched", JSON.stringify(currentList));
+        setCurrent(currentList);
     }, []);
 
     return (
@@ -112,7 +114,7 @@ const Detail = (props) => {
                             })
                         );
                         setCount(count + 1);
-                        navigate("/detail/" + `${id}` + "/location");
+                        navigate(`/detail/${id}/location`);
                     }}
                 >
                     장바구니 : {count}
@@ -153,7 +155,7 @@ const Detail = (props) => {
                 </Nav>
                 <TabContent tab={tab} items={product} />
             </div>
-            <CurrentItems data={props.items} />
+            <CurrentItems data={props.items} current={current} />
         </DetailPage>
     );
 };

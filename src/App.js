@@ -29,6 +29,7 @@ export let Context1 = React.createContext();
 
 function App() {
     // localStorage 이미 watched 항목이 있으면 [] 만들지 않도록 조건문 작성
+
     useEffect(() => {
         if (localStorage.length === 0) {
             localStorage.setItem("watched", JSON.stringify([]));

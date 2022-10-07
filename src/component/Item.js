@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -34,6 +34,14 @@ export default function Item(props) {
 
     const [data, setData] = useState(props.items);
     // console.log(data);
+    let [current, setCurrent] = useState([]);
+
+    useEffect(() => {
+        let currentList = localStorage.getItem("watched");
+        currentList = JSON.parse(currentList);
+        setCurrent(currentList);
+        console.log(current);
+    }, []);
 
     return (
         <MainContainer>
@@ -62,7 +70,7 @@ export default function Item(props) {
                                 <ItemImg
                                     src={item.src}
                                     onClick={() => {
-                                        navigate("/detail/" + `${item.id}`);
+                                        navigate(`/detail/${item.id}`);
                                     }}
                                 ></ItemImg>
                                 <ItemTitle>{item.title}</ItemTitle>
@@ -90,7 +98,7 @@ export default function Item(props) {
                     더 보기
                 </Button>
             </MainWrapper>
-            <CurrentItems data={data} />
+            <CurrentItems data={data} current={current} />
         </MainContainer>
     );
 }

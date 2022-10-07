@@ -1,28 +1,27 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import styled from "styled-components";
 
 export default function CurrentItems(props) {
     const navigate = useNavigate();
-    let [current, setCurrent] = useState([]);
+    // let [current, setCurrent] = useState([]);
 
-    useEffect(() => {
-        let currentList = localStorage.getItem("watched");
-        currentList = JSON.parse(currentList);
-        setCurrent(currentList);
-    }, []);
-    // console.log(current);
-
+    // useEffect(() => {
+    //     let currentList = localStorage.getItem("watched");
+    //     currentList = JSON.parse(currentList);
+    //     setCurrent(currentList);
+    //     console.log(current);
+    // }, []);
     return (
         <CurrentContainer>
             <div className="title">최근 본 상품</div>
             <Nav className="flex-column">
-                {current == null
+                {props.current == null
                     ? console.log("최근 본 상품이 없어요")
-                    : current.map((item, idx) => {
+                    : props.current.map((item, idx) => {
                           const items = props.data.find(
-                              (x) => x.id == current[idx]
+                              (x) => x.id == props.current[idx]
                           );
                           //   console.log(items.src);
                           return (
@@ -31,10 +30,9 @@ export default function CurrentItems(props) {
                                       src={items.src}
                                       alt=""
                                       onClick={() => {
-                                          navigate("/detail/" + `${items.id}`);
+                                          navigate(`/detail/${items.id}`);
                                       }}
-                                  />
-                                  {/* {current[idx]} */}
+                                  />{" "}
                               </Nav.Link>
                           );
                       })}
