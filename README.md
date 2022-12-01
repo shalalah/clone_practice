@@ -8,7 +8,13 @@
   
   - 위의 작업을 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)를 사용하여 클론코딩을 계속해 나갈 예정이다.  
     🚚[리액트로 마켓컬리 클론코딩 brach로 이동](https://github.com/shalalah/MarketClone/tree/MarketCurly_React)   
- 
+<br>
+
+ ## <img width="20px" src="https://seekicon.com/free-icon-download/git-branch-outline_1.svg"/> 쇼핑몰 프로젝트 수업 따라하기  
+  - 기간 : 22년 9월 26일 ~ 10월 7일   
+  - 코딩애플 React 강의를 통해 쇼핑몰 프로젝트 구현    
+    - React 기초부터 구현을 위해 연습하며 익히는 스스로 학습법에 대해 경험할 수 있었다.    
+  <a href="https://github.com/shalalah/clone_practice/tree/shop">👟 코딩애플 수업 쇼핑몰 branch로 이동 👟</a>
 <br>
 
  ## <img width="20px" src="https://seekicon.com/free-icon-download/git-branch-outline_1.svg"/> viewtube   
